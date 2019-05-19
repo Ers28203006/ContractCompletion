@@ -1,0 +1,217 @@
+﻿<Window x:Class="ContractCompletion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContractCompletion"
+        mc:Ignorable="d"
+        Title="Форма договора" Height="500" Width="1020">
+
+    <Window.Resources>
+        <Style x:Key="Header">
+            <Setter Property="Paragraph.FontSize" Value="20"/>
+            <Setter Property="Paragraph.TextDecorations" Value="Underline"/>
+            <Setter Property="Paragraph.TextAlignment" Value="Center"/>
+            <Setter Property="Paragraph.FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="SubHeader">
+            <Setter Property="Paragraph.FontWeight" Value="Bold"/>
+            <Setter Property="Paragraph.TextAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ToolBarTray Background="DeepSkyBlue">
+            <ToolBar Margin="5">
+                <StackPanel>
+                    <TextBlock>Дата заключения Договора:</TextBlock>
+                    <TextBox Name="dateTextBox" Height="20"/>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5">
+                <StackPanel>
+                    <TextBlock>ФИО Арендодателя:</TextBlock>
+                    <TextBox Name="tenantNameTextBox" Height="20" Width="200"/>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5">
+                <StackPanel>
+                    <TextBlock>Серия паспорта:</TextBlock>
+                    <TextBox Name="passportSeriesTextBox" Height="20"/>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5">
+                <StackPanel>
+                    <TextBlock>Номер паспорта:</TextBlock>
+                    <TextBox Name="passportNumberTextBox" Height="20"/>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5">
+                <StackPanel>
+                    <TextBlock>Орган выдавший паспорт:</TextBlock>
+                    <TextBox Name="issuingAuthorityTextBox" Height="20" Width="200"/>
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <FlowDocumentScrollViewer Grid.Row="1" Name="flowDocumentScrollViewer">
+            <FlowDocument Background="LightYellow">
+                <Paragraph Style="{StaticResource Header}">
+                    Договор аренды жилого помещения
+                </Paragraph>
+
+                <Paragraph>г. Астана</Paragraph>
+                <Paragraph>
+
+                    дата:
+                    <TextBlock Text="{Binding ElementName=dateTextBox, Path=Text}" Name="dateTextBlock"/> года
+                </Paragraph>
+                <Paragraph>
+                    Мы, нижеподписавшиеся, гражданин Булочкин Владимир Владимирович, именуемый в дальнейшем "Арендодатель", с одной стороны, и гражданин
+                    <TextBlock Text="{Binding ElementName=tenantNameTextBox, Path=Text}" Name="tenantTextBlock"/> , именуемый в дальнейшем "Арендатор", с другой стороны, заключили настоящий Договор о нижеследующем:
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    1. Предмет договора
+                </Paragraph>
+                <Paragraph>
+                    1.1. Арендодатель предоставляет, а Арендатор получает во временное пользование (аренду) 3 (трехкомнатную) комнатную квартиру, расположенную по адресу: г. Астана ул. А-98 д. 9 кв. 3.
+                </Paragraph>
+                <Paragraph>
+                    1.2. Арендодатель предоставляет, а Арендатор получает во временное пользование находящиеся в квартире предметы мебели и бытовую технику.
+                </Paragraph>
+                <Paragraph>
+                    1.3. Срок аренды составляет 11 месяцев и определяется со дня даты подписания настоящего договора.
+                </Paragraph>
+                <Paragraph>
+                    1.4. Передаваемая в аренду квартира используется Арендатором только для проживания без права сдачи её в субаренду.
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    2. Права и обязанности Арендодателя.
+                </Paragraph>
+                <Paragraph>
+                    2.1. Арендодатель подтверждает, что он получил согласие всех совершеннолетних лиц, зарегистрированных по данному адресу, или владеющих совместно с ним данной жилплощадью, на сдачу данной квартиры в аренду.
+                </Paragraph>
+                <Paragraph>
+                    2.2. Арендодатель подтверждает, что на момент подписания настоящего Договора аренды данная квартира не продана, не подарена, не является предметом судебного спора, не находится под залогом, арестом, не сдана внаем. Дом на период аренды квартиры не подлежит сносу или капитальному ремонту с отселением.
+                </Paragraph>
+                <Paragraph>
+                    2.3. Арендодатель имеет право посещать Арендатора только с предварительным уведомлением.
+                </Paragraph>
+                <Paragraph>
+                    2.4. Арендодатель последствия аварий и повреждений, происшедших не по вине Арендатора, устраняет своими силами.
+                </Paragraph>
+                <Paragraph>
+                    2.5. Арендодатель оплачивает: эксплуатационные расходы, центральное отопление, коммунальные услуги, телефон (абонентская ежемесячная плата).
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    3. Права и обязанности Арендатора.
+                </Paragraph>
+                <Paragraph>
+                    3.1 Содержать арендуемую квартиру в порядке предусмотренном санитарными, противопожарными и иными нормами установленными действующим законодательством PK.
+                </Paragraph>
+                <Paragraph>
+                    3.2. О предстоящем освобождении снимаемой в аренду квартиры известить Арендодателя не менее чем за 4 недели.
+                </Paragraph>
+                <Paragraph>
+                    3.3. В случае нанесения ущерба арендуемой квартире и имуществу, находящемуся в ней, Арендатор обязуется возместить Арендодателю причиненный ущерб.
+                </Paragraph>
+                <Paragraph>
+                    3.4. Арендатор оплачивает: расход электроэнергии, междугородние, международные телефонные переговоры, различные услуги телефонной связи.
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    4. Порядок расчетов.
+                </Paragraph>
+                <Paragraph>
+                    4.1. За арендуемую квартиру Арендатором уплачивается месячная плата из расчета 120 000 (стодвадцать тысяч тенге).
+                </Paragraph>
+                <Paragraph>
+                    4.2. Ежемесячная арендная плата вносится Арендатором за месяц вперед не позднее 25 (двадцатьпятого) числа.
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    5. Срок действия договора аренды квартиры, порядок изменения, расторжение договора.
+                </Paragraph>
+                <Paragraph>
+                    5.1. Настоящий договор вступает в силу с момента его подписания и действует в течение всего срока аренды квартиры.
+                </Paragraph>
+                <Paragraph>
+                    5.2. Изменения и дополнения к настоящему договору могут вноситься только по соглашению сторон путем подписания дополнительного соглашения, являющегося неотъемлемой частью настоящего договора аренды квартиры.
+                </Paragraph>
+                <Paragraph>
+                    5.3. Досрочное расторжение договора аренды Наймодателем возможно в случаях, если Арендатор нарушил свои обязанности по настоящему договору аренды квартиры.
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    6. Порядок рассмотрения споров.
+                </Paragraph>
+                <Paragraph>
+                    6.1. Все споры между сторонами, связанные с настоящим договором аренды, решаются путем взаимных переговоров.
+                </Paragraph>
+                <Paragraph>
+                    6.2. В случае невозможности их разрешения переговорным путем они будут рассмотрены в соответствии с Законодательством PK.
+                </Paragraph>
+                <Paragraph Style="{StaticResource SubHeader}">
+                    7. Паспортные данные сторон.
+                </Paragraph>
+                <Table TextAlignment="Center">
+                    <Table.Columns>
+                        <TableColumn Width="Auto" />
+                        <TableColumn Width="Auto"/>
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow FontWeight="Bold">
+                            <TableCell>
+                                <Paragraph>Арендодатель</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Арендатор</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>Паспорт: серия 023258123</Paragraph>
+                                <Paragraph>№ 021458796</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>Паспорт: серия
+                                    <TextBlock Text="{Binding ElementName=passportSeriesTextBox, Path=Text}" Name="passportSeriesTenantTextBlock"/>
+                                </Paragraph>
+                                
+                                <Paragraph>№
+                                    <TextBlock Text="{Binding ElementName=passportNumberTextBox, Path=Text}" Name="passportNumberTenantTextBlock"/>
+                                </Paragraph>
+
+                            </TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>выдан: Мин. Юст. РК</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>выдан:
+                                    <TextBlock Text="{Binding ElementName=issuingAuthorityTextBox, Path=Text}" Name="issuingAuthorityTextBlock"/>
+                                </Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>Подпись________________</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph>Подпись________________</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+
+        <Button Grid.Row="2" Height="25" Width="50" Margin="30 10" HorizontalAlignment="Left" BorderBrush="DeepSkyBlue" Name="printButton" Click="PrintButtonClick">Печать</Button>
+    </Grid>
+</Window>
